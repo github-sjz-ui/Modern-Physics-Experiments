@@ -1,0 +1,236 @@
+\documentclass[UTF8,a4paper,12pt]{ctexart}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\hypersetup{hidelinks}
+\linespread{1.35}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.25em}
+\captionsetup{font=small,labelsep=quad}
+
+\title{\bfseries 密立根油滴实验报告\\[0.5em]
+\large——平衡法测量电子电量}
+\author{姓名：\underline{\hspace{3cm}}\qquad 学号：\underline{\hspace{3cm}}\\[0.5em]
+班级：\underline{\hspace{3cm}}}
+\date{日期：\underline{\hspace{4cm}}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+实验条件：温度 $22\ ^\circ\mathrm{C}$；压强 $1033\ \mathrm{hPa}$；油滴匀速下落距离 $1.60\ \mathrm{mm}$。
+\end{center}
+
+\section{实验目的}
+\begin{enumerate}
+  \item 理解密立根油滴实验的测量原理，掌握用平衡法测量油滴电荷的方法。
+  \item 测量基本电荷（电子电量），并根据不同油滴的电荷量分析电荷的量子化特征。
+  \item 学习对微小油滴的运动进行 Stokes 修正，以及多次测量取平均的数据处理方法。
+\end{enumerate}
+
+\section{实验原理}
+调节平行板间电压，使带电油滴静止。忽略其他微小作用力，油滴所受电场力与有效重力平衡。考虑空气浮力，有
+\begin{equation}
+  \frac{qU}{d}=\frac{4}{3}\pi r^3(\rho_{\text{油}}-\rho_{\text{空气}})g,
+\end{equation}
+式中，$q$ 为油滴电荷量，$U$ 为平衡电压，$d$ 为平行板间距，$r$ 为油滴半径，$g$ 为重力加速度。令 $\rho=\rho_{\text{油}}-\rho_{\text{空气}}$。撤去电场后，油滴匀速下落距离 $l$ 的平均时间为 $\bar{t}$，由 Stokes 定律直接计算半径：
+\begin{equation}
+  r=\sqrt{\frac{9\eta l}{2\rho g\bar{t}}}.
+\end{equation}
+
+由于油滴半径很小，需要考虑空气分子平均自由程造成的滑移修正。采用 Stokes（Cunningham）修正因子
+\begin{equation}
+  K=1+\frac{b}{pr},
+\end{equation}
+其中 $p$ 为空气压强，$b$ 为修正系数。将修正后的黏滞阻力代入平衡关系，可直接得到
+\begin{equation}
+  q=\frac{18\pi d}{U\sqrt{2\rho g}}
+  \left[\frac{\eta l}{\bar{t}\left(1+\dfrac{b}{pr}\right)}\right]^{3/2}.
+  \label{eq:charge}
+\end{equation}
+本报告先由平均下落时间直接求 $r$，再代入式~\eqref{eq:charge} 求 $q$，不采用迭代法。取标准电子电量 $e_0=1.602176634\times10^{-19}\ \mathrm{C}$，油滴所带电子数为
+\begin{equation}
+  n=\operatorname{round}\left(\frac{q}{e_0}\right).
+\end{equation}
+单个油滴给出的电子电量及其相对误差分别为
+\begin{equation}
+  e_i=\frac{q}{n},\qquad
+  \delta_i=\frac{|e_i-e_0|}{e_0}\times100\%.
+\end{equation}
+
+\section{实验参数}
+\begin{table}[htbp]
+  \centering
+  \caption{实验参数及计算用常量}
+  \begin{tabular}{>{\centering\arraybackslash}p{4.2cm}ccc}
+    \toprule
+    参数 & 符号 & 数值 & 单位 \\
+    \midrule
+    温度 & $T$ & $22$ & $^\circ\mathrm{C}$ \\
+    空气压强 & $p$ & $1.033\times10^5$ & $\mathrm{Pa}$ \\
+    油密度 & $\rho_{\text{油}}$ & $980.0$ & $\mathrm{kg/m^3}$ \\
+    空气密度 & $\rho_{\text{空气}}$ & $1.29$ & $\mathrm{kg/m^3}$ \\
+    有效密度 & $\rho$ & $978.71$ & $\mathrm{kg/m^3}$ \\
+    重力加速度 & $g$ & $9.793$ & $\mathrm{m/s^2}$ \\
+    空气黏滞系数 & $\eta$ & $1.819412\times10^{-5}$ & $\mathrm{Pa\cdot s}$ \\
+    平行板间距 & $d$ & $5.0\times10^{-3}$ & $\mathrm{m}$ \\
+    Stokes 修正系数 & $b$ & $8.23\times10^{-3}$ & $\mathrm{N/m}$ \\
+    下落距离 & $l$ & $1.6\times10^{-3}$ & $\mathrm{m}$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+其中油密度和空气黏滞系数由实验给定公式计算：
+\begin{align}
+  \rho_{\text{油}}&=991-0.5T=980.0\ \mathrm{kg/m^3},\\
+  \eta&=1.81\times10^{-5}\left[1+0.0026(T-20)\right]
+  =1.819412\times10^{-5}\ \mathrm{Pa\cdot s}.
+\end{align}
+
+\section{实验步骤}
+\begin{enumerate}
+  \item 调节仪器，使平行板水平、油滴成像清晰，并熟悉平衡电压调节和计时操作。
+  \item 喷入油滴，选择运动缓慢、清晰的带电油滴，调节平衡电压使其稳定悬浮，记录平衡电压 $U$。
+  \item 撤去电场，让油滴匀速下落 $1.60\ \mathrm{mm}$，记录下落时间；对同一油滴重复测量两次。
+  \item 共测量 10 个油滴。以两次下落时间的平均值计算油滴半径和电荷量，并作 Stokes 修正。
+  \item 由 $q/e_0$ 确定电子数 $n$，计算各油滴对应的 $e_i$，最后求 10 个结果的平均值及相对误差。
+\end{enumerate}
+
+\section{数据记录与处理}
+\subsection{原始测量数据}
+\begin{table}[htbp]
+  \centering
+  \caption{10 个油滴的平衡电压和下落时间}
+  \begin{tabular}{ccccc}
+    \toprule
+    油滴序号 & $U/\mathrm{V}$ & $t_1/\mathrm{s}$ & $t_2/\mathrm{s}$ & 平均时间 $\bar{t}/\mathrm{s}$ \\
+    \midrule
+    1  & 89  & 70.49 & 73.01 & 71.750 \\
+    2  & 124 & 24.31 & 23.50 & 23.905 \\
+    3  & 141 & 25.88 & 26.61 & 26.245 \\
+    4  & 158 & 47.94 & 50.48 & 49.210 \\
+    5  & 106 & 20.61 & 19.34 & 19.975 \\
+    6  & 89  & 28.21 & 27.71 & 27.960 \\
+    7  & 211 & 24.51 & 25.11 & 24.810 \\
+    8  & 140 & 25.37 & 25.58 & 25.475 \\
+    9  & 172 & 21.89 & 23.24 & 22.565 \\
+    10 & 85  & 36.81 & 35.88 & 36.345 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\clearpage
+\subsection{Stokes 修正后的计算结果}
+\begin{table}[htbp]
+  \centering
+  \caption{油滴半径、电荷量及电子电量计算结果}
+  \small
+  \begin{tabular}{cccccc}
+    \toprule
+    序号 & $r/\mathrm{\mu m}$ & $q/(10^{-19}\ \mathrm{C})$ & $n$ & $e_i/(10^{-19}\ \mathrm{C})$ & 相对误差 \\
+    \midrule
+    1  & 0.436451 & 1.458214 & 1 & 1.458214 & $8.99\%$ \\
+    2  & 0.756141 & 6.022206 & 4 & 1.505551 & $6.03\%$ \\
+    3  & 0.721645 & 4.572565 & 3 & 1.524188 & $4.87\%$ \\
+    4  & 0.527012 & 1.505636 & 1 & 1.505636 & $6.03\%$ \\
+    5  & 0.827187 & 9.337480 & 6 & 1.556247 & $2.87\%$ \\
+    6  & 0.699163 & 6.556525 & 4 & 1.639131 & $2.31\%$ \\
+    7  & 0.742221 & 3.338292 & 2 & 1.669146 & $4.18\%$ \\
+    8  & 0.732470 & 4.826224 & 3 & 1.608741 & $0.41\%$ \\
+    9  & 0.778268 & 4.753318 & 3 & 1.584439 & $1.11\%$ \\
+    10 & 0.613232 & 4.534316 & 3 & 1.511439 & $5.66\%$ \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{示例计算}
+以第 1 个油滴为例，平均下落时间为
+\begin{equation}
+  \bar{t}=\frac{70.49+73.01}{2}=71.75\ \mathrm{s}.
+\end{equation}
+油滴半径为
+\begin{equation}
+  r=\sqrt{\frac{9\eta l}{2\rho g\bar{t}}}
+  =0.436451\ \mathrm{\mu m}.
+\end{equation}
+Stokes 修正因子为
+\begin{equation}
+  K=1+\frac{b}{pr}=1.182542.
+\end{equation}
+代入式~\eqref{eq:charge}，得到
+\begin{equation}
+  q=1.458214\times10^{-19}\ \mathrm{C}.
+\end{equation}
+由于 $q/e_0=0.9101$，故 $n=1$，于是
+\begin{equation}
+  e_1=\frac{q}{n}=1.458214\times10^{-19}\ \mathrm{C},
+  \qquad \delta_1=8.99\%.
+\end{equation}
+
+\section{实验结果与分析}
+10 个油滴分别给出的电子电量平均值为
+\begin{equation}
+  \bar{e}=\frac{1}{10}\sum_{i=1}^{10}e_i
+  =1.556273\times10^{-19}\ \mathrm{C}.
+\end{equation}
+与标准值 $e_0$ 相比，平均值的相对误差为
+\begin{equation}
+  \delta=\frac{|\bar{e}-e_0|}{e_0}\times100\%=2.865\%,
+\end{equation}
+即测量结果比标准值低约 $2.865\%$。10 个 $e_i$ 的样本标准偏差为 $6.7449\times10^{-21}\ \mathrm{C}$，单次结果范围为 $1.458214\times10^{-19}$～$1.669146\times10^{-19}\ \mathrm{C}$。
+
+各油滴推得的电子数依次为 1、4、3、1、6、4、2、3、3、3，共出现 1、2、3、4、6 五种不同取值。以 $n$ 为整数对电荷量归一化后，各组 $e_i$ 均接近标准电子电量，实验结果支持油滴电荷呈整数倍分布的量子化特征。
+
+\subsection{电荷量与电子数的线性拟合}
+若电荷量子化成立，则油滴电荷量应满足 $q=ne$。以 $10^{-19}\ \mathrm{C}$ 为电荷量单位，对 10 组 $(n_i,q_i)$ 作带截距的最小二乘线性拟合：
+\begin{equation}
+  q=an+b,
+\end{equation}
+其中斜率 $a$ 对应电子电量。拟合得到
+\begin{equation}
+  q=(1.566259n-0.008299)\times10^{-19}\ \mathrm{C},
+  \qquad R^2=0.994593.
+\end{equation}
+因此
+\begin{equation}
+  e_{\mathrm{fit}}=1.566259\times10^{-19}\ \mathrm{C},
+\end{equation}
+其相对标准值的误差为 $2.242\%$。拟合截距仅为 $-0.008299\times10^{-19}\ \mathrm{C}$，接近理论值零；决定系数 $R^2$ 接近 1，说明电荷量与整数电子数之间具有良好的线性关系。拟合斜率与前面直接平均所得 $\bar e$ 接近，两种数据处理方法相互印证。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.88\textwidth]{q_n_fit.pdf}
+  \caption{油滴电荷量 $q$ 随电子数 $n$ 的关系及线性拟合。橙色实线为实验数据拟合结果，绿色虚线为标准关系 $q=e_0n$。}
+  \label{fig:qn-fit}
+\end{figure}
+
+图~\ref{fig:qn-residual} 给出了各测量点相对于拟合直线的残差。残差分布在零线两侧，未表现出明显的系统性弯曲趋势，进一步说明采用线性关系描述实验数据是合理的。残差的大小反映了计时、平衡电压调节及油滴运动稳定性等因素造成的分散。
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.88\textwidth]{q_n_residual.pdf}
+  \caption{电荷量线性拟合的残差图，残差单位为 $10^{-19}\ \mathrm{C}$。}
+  \label{fig:qn-residual}
+\end{figure}
+
+\section{误差分析与注意事项}
+\begin{enumerate}
+  \item 下落时间由人工计时，启停反应时间以及油滴是否真正达到匀速运动，都会直接影响半径和电荷量。由计算式可知，$r\propto\bar{t}^{-1/2}$，而未修正部分的 $q\propto\bar{t}^{-3/2}$，因此计时误差对电荷量尤为敏感。
+  \item 油滴若未完全静止，或平衡电压读数存在波动，会使电场力与有效重力不完全平衡。应选择清晰、运动稳定的油滴并细致调压。
+  \item 油滴的布朗运动、空气对流、板间距和仪器校准偏差，以及油滴蒸发造成的半径变化，均可能带来系统或随机误差。
+  \item Stokes 修正与油滴半径和空气压强有关。本实验统一采用 $T=22\ ^\circ\mathrm{C}$、$p=1033\ \mathrm{hPa}$ 计算，未进行迭代求解。
+\end{enumerate}
+
+\section{实验结论}
+采用平衡法并对油滴运动作 Stokes 修正，测得电子电量的平均值为
+\begin{equation}
+  \boxed{\bar{e}=1.556273\times10^{-19}\ \mathrm{C}},
+\end{equation}
+相对标准值的误差为 $2.865\%$。线性拟合给出 $e_{\mathrm{fit}}=1.566259\times10^{-19}\ \mathrm{C}$，且 $R^2=0.994593$。不同油滴的电荷量可分别对应 1、2、3、4、6 个基本电荷，结果与电荷量子化规律相符。
+
+\end{document}
