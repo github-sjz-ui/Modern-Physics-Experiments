@@ -205,34 +205,48 @@
 各次测量推得的电子数共出现 1、2、3、4、6 五种不同取值。以 $n$ 为整数对电荷量归一化后，各组 $e_k$ 均接近标准电子电量，实验结果支持油滴电荷呈整数倍分布的量子化特征。
 
 \subsection{电荷量与电子数的线性拟合}
-若电荷量子化成立，则油滴电荷量应满足 $q=ne$。以 $10^{-19}\ \mathrm{C}$ 为电荷量单位，对 20 组独立计算的 $(n_k,q_k)$ 作带截距的最小二乘线性拟合：
+若电荷量子化成立，则油滴电荷量应满足 $q=ne$。保留前述 20 次独立计算结果，在拟合前先将相同电子数 $n$ 的电荷量分为一组，并计算组内平均值：
 \begin{equation}
-  q=an+b,
+  \bar q_n=\frac{1}{N_n}\sum_{n_k=n}q_k,
+\end{equation}
+其中 $N_n$ 为该组的测量次数。以 $10^{-19}\ \mathrm{C}$ 为电荷量单位，分组结果为
+\begin{equation}
+  \begin{array}{c|ccccc}
+    \hline
+    n & 1 & 2 & 3 & 4 & 6\\
+    N_n & 4 & 2 & 8 & 4 & 2\\
+    \bar q_n & 1.456117 & 3.312697 & 4.633516 & 6.239235 & 9.295936\\
+    \hline
+  \end{array}
+\end{equation}
+对上述 5 个 $(n,\bar q_n)$ 点作等权、带截距的最小二乘线性拟合：
+\begin{equation}
+  \bar q_n=an+b,
 \end{equation}
 其中斜率 $a$ 对应电子电量。拟合得到
 \begin{equation}
-  q=(1.561456n-0.031027)\times10^{-19}\ \mathrm{C},
-  \qquad R^2=0.987977.
+  \bar q_n=(1.548285n+0.032990)\times10^{-19}\ \mathrm{C},
+  \qquad R^2=0.998535.
 \end{equation}
 因此
 \begin{equation}
-  e_{\mathrm{fit}}=1.561456\times10^{-19}\ \mathrm{C},
+  e_{\mathrm{fit}}=1.548285\times10^{-19}\ \mathrm{C},
 \end{equation}
-其相对标准值的误差为 $2.542\%$。拟合截距仅为 $-0.031027\times10^{-19}\ \mathrm{C}$，接近理论值零；决定系数 $R^2$ 接近 1，说明电荷量与整数电子数之间具有良好的线性关系。拟合斜率与直接平均所得 $\bar e$ 接近，两种数据处理方法相互印证。
+其相对标准值的误差为 $3.364\%$。拟合截距仅为 $0.032990\times10^{-19}\ \mathrm{C}$，接近理论值零；决定系数 $R^2$ 接近 1，说明分组平均电荷量与整数电子数之间具有良好的线性关系。拟合斜率与直接平均所得 $\bar e$ 接近，两种数据处理方法相互印证。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.88\textwidth]{q_n_fit.pdf}
-  \caption{20 次独立测量的电荷量 $q$ 随电子数 $n$ 的关系及线性拟合。橙色实线为拟合结果，绿色虚线为标准关系 $q=e_0n$。}
+  \caption{相同电子数 $n$ 的电荷量组内平均值及其线性拟合。蓝色点为 5 个 $(n,\bar q_n)$ 数据点，橙色实线为拟合结果，绿色虚线为标准关系 $q=e_0n$。}
   \label{fig:qn-fit}
 \end{figure}
 
-图~\ref{fig:qn-residual} 给出了各测量点相对于拟合直线的残差。残差分布在零线两侧，未表现出明显的系统性弯曲趋势，说明采用线性关系描述实验数据是合理的。残差的大小反映了计时、平衡电压调节及油滴运动稳定性等因素造成的分散。
+图~\ref{fig:qn-residual} 给出了 5 个分组平均点相对于拟合直线的残差。残差分布在零线两侧，未表现出明显的系统性弯曲趋势，说明采用线性关系描述分组平均数据是合理的。
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.88\textwidth]{q_n_residual.pdf}
-  \caption{20 次独立计算的电荷量线性拟合残差图，残差单位为 $10^{-19}\ \mathrm{C}$。}
+  \caption{相同电子数分组平均电荷量的线性拟合残差图，残差单位为 $10^{-19}\ \mathrm{C}$。}
   \label{fig:qn-residual}
 \end{figure}
 
@@ -249,6 +263,6 @@
 \begin{equation}
   \boxed{\bar{e}=1.541554\times10^{-19}\ \mathrm{C}},
 \end{equation}
-相对标准值的误差为 $3.784\%$。线性拟合给出 $e_{\mathrm{fit}}=1.561456\times10^{-19}\ \mathrm{C}$，且 $R^2=0.987977$。不同油滴的电荷量可分别对应 1、2、3、4、6 个基本电荷，结果与电荷量子化规律相符。
+相对标准值的误差为 $3.784\%$。将相同电子数的电荷量取组内平均后，线性拟合给出 $e_{\mathrm{fit}}=1.548285\times10^{-19}\ \mathrm{C}$，且 $R^2=0.998535$。不同油滴的电荷量可分别对应 1、2、3、4、6 个基本电荷，结果与电荷量子化规律相符。
 
 \end{document}
